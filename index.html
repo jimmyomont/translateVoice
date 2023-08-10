@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Converter</title>
+    <link rel="stylesheet" href="sytle.css">
+
+</head>
+
+<body>
+    <article>
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+        <div class="content">
+            <h1>Traducteur de texte</h1>
+            <article>
+                <textarea id="texteFrancais" placeholder="Texte à traduire ici ..."></textarea>
+            </article>
+            <article>
+                <textarea id="resultatItalien" placeholder="Texte traduit ici ..."></textarea>
+            </article>
+            <div class="row">
+                <section>
+
+                    <section>
+                        <select id="voiceSelect">
+                        <!-- Autres options existantes -->
+                        <option>Choisir une langue</option>
+                        <option value="fr-FR">Français</option>
+                        <option value="it-IT">Italien</option>
+                        <option value="de-DE">Allemand</option>
+                        <option value="en-EN">Anglais</option>
+                        <option value="es-ES">Espagnol</option>
+                        <option value="pt-PT">Portugais</option>
+                        <option value="nl-NL">Néerlandais</option>
+                        <option value="ru-RU">Russe</option>
+                        <option value="zh-ZH">Chinois</option>
+                        <option value="ja-JA">Japonais</option>
+                        <option value="ko-KO">Coréen</option>
+                        <!-- Ajoutez d'autres langues au besoin -->
+                        </select>
+                        <article><button onclick="traduire()">Traduire</button></article>
+                        <article><button onclick="lireTexte()">Play</button></article>
+                        <article><button onclick="reinitialiser()">Réinitialiser</button></article>
+                    </section>
+            </div>
+        </div>
+    </article>
+
+    <script>
+        function traduire() {
+            const texteFrancais = document.getElementById('texteFrancais').value;
+            const langueCible = document.getElementById('voiceSelect').value; // Obtenir la valeur de la langue cible
+
+            // Utiliser la valeur de la langue cible dans l'URL de la requête
+            const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(texteFrancais)}&langpair=fr|${langueCible}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const resultat = data.responseData.translatedText;
+                    document.getElementById('resultatItalien').textContent = resultat;
+                })
+                .catch(error => console.error('Erreur :', error));
+        }
+
+        function lireTexte() {
+            const texte = document.getElementById('resultatItalien').value;
+            const lang = document.getElementById('voiceSelect').value;
+            const speech = new SpeechSynthesisUtterance(texte);
+            speech.lang = lang;
+            window.speechSynthesis.speak(speech);
+        }
+
+        function reinitialiser() {
+            document.getElementById('texteFrancais').value = '';
+            document.getElementById('resultatItalien').value = '';
+        }
+    </script>
+</body>
+
+</html>
