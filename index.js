@@ -44,7 +44,6 @@ function lireTexteAvecVoixNavigateur() {
     window.speechSynthesis.speak(speech);
 }
 
-// ... Vos fonctions existantes ...
 
 function lireTexteAvecVoixNavigateur() {
     const texte = document.getElementById('resultatTraduit').value;
@@ -56,15 +55,10 @@ function lireTexteAvecVoixNavigateur() {
         speech.lang = speech.voix.lang;
     } else if (lang) {
         speech.lang = lang;
-    } else {
-        alert("Veuillez sélectionner une voix du navigateur ou une langue cible.");
-        return;
-    }
-
+    } 
     window.speechSynthesis.speak(speech);
 }
 
-// ... Le reste de votre code ...
 
 
 //---------------------Horloge-------------------------------
