@@ -45,7 +45,6 @@ textarea::placeholder {
 
 .form {
   display: flex;
-  gap: 20px;
   justify-content: center;
 }
 
@@ -72,7 +71,7 @@ select {
   box-shadow: 7px 7px 20px #6a24ba;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  width: 100%;
+  /* width: 100%; */
   color: #fff;
   font-size: 16px;
   padding: 10px 30px;
