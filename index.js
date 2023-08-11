@@ -6,6 +6,16 @@ function traduire() {
     const texteFrancais = document.getElementById('texteFrancais').value;
     const langueCible = document.getElementById('voiceSelect').value; // Obtenir la valeur de la langue cible
 
+    if (langueCible === 'fr-FR') {
+        document.getElementById('resultatTraduit').textContent = 'Veuillez choisir une langue de traduction.';
+        return;
+    }
+
+    if (texteFrancais === '') {
+        document.getElementById('resultatTraduit').textContent = 'Veuillez entrer un texte à traduire.';
+        return;
+    }
+
     // Utiliser la valeur de la langue cible dans l'URL de la requête
     const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(texteFrancais)}&langpair=fr|${langueCible}`;
 
@@ -16,6 +26,11 @@ function traduire() {
             document.getElementById('resultatTraduit').textContent = resultat;
         })
         .catch(error => console.error('Erreur :', error));
+}
+
+function reinitialiser() {
+    document.getElementById('texteFrancais').value = '';
+    document.getElementById('resultatTraduit').textContent = '';
 }
 
 function reinitialiser() {
@@ -55,7 +70,7 @@ function lireTexteAvecVoixNavigateur() {
         speech.lang = speech.voix.lang;
     } else if (lang) {
         speech.lang = lang;
-    } 
+    }
     window.speechSynthesis.speak(speech);
 }
 
@@ -67,20 +82,20 @@ let heuresAfficher = document.querySelector('.heures')
 let date = document.querySelector('.date')
 
 const affichageHeure = function () {
-    let today , annee, listeMois, mois, listeJours, jourNumero, jourNom, heures, minutes, secondes, deuxChiffres; 
-    today = new Date ();
+    let today, annee, listeMois, mois, listeJours, jourNumero, jourNom, heures, minutes, secondes, deuxChiffres;
+    today = new Date();
     annee = today.getFullYear();
 
-    listeMois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]; 
-    mois = listeMois [today.getMonth()]; 
+    listeMois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+    mois = listeMois[today.getMonth()];
 
-    jourNumero = today.getDate(); 
+    jourNumero = today.getDate();
 
-    listeJours =["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]; 
+    listeJours = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
     jourNom = listeJours[today.getDay()]
 
-    deuxChiffres = function(element) {
-        if (element < 10){
+    deuxChiffres = function (element) {
+        if (element < 10) {
             return element = "0" + element;
         } else {
             return element;
@@ -92,10 +107,10 @@ const affichageHeure = function () {
     minutes = deuxChiffres(today.getMinutes())
     secondes = deuxChiffres(today.getSeconds())
 
-    heuresAfficher.textContent = heures + ":" + minutes + ":" + secondes; 
-    date.textContent = jourNom + "," + jourNumero + " " + mois + " " + annee; 
+    heuresAfficher.textContent = heures + ":" + minutes + ":" + secondes;
+    date.textContent = jourNom + "," + jourNumero + " " + mois + " " + annee;
 
-    setTimeout (affichageHeure, 1000)
+    setTimeout(affichageHeure, 1000)
 }
 
 affichageHeure();
