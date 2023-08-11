@@ -23,11 +23,13 @@
     </section>
     <section class="content">
         <h1>Traducteur de texte</h1>
+        <article class="box">
+            <textarea id="texteFrancais" placeholder="Texte en Français à traduire ici ..."></textarea>
+        </article>
         <section class="form">
             <select id="voiceSelect">
                 <!-- Autres options existantes -->
-                <option>Choisir une langue</option>
-                <option value="fr-FR">Français</option>
+                <option>Choisir une langue de traduction</option>
                 <option value="it-IT">Italien</option>
                 <option value="de-DE">Allemand</option>
                 <option value="en-EN">Anglais</option>
@@ -41,9 +43,6 @@
                 <!-- Ajoutez d'autres langues au besoin -->
             </select>
         </section>
-        <article class="box">
-            <textarea id="texteFrancais" placeholder="Texte à traduire ici ..."></textarea>
-        </article>
         <article class="traduire"><button class="bouton" onclick="traduire()">Traduire</button></article>
         <article class="box">
             <textarea id="resultatTraduit" placeholder="Texte traduit ici ..."></textarea>
@@ -52,11 +51,11 @@
             <section>
                 <article class="display">
                 <select id="voixNavigateur">
-                    <option value="">choisir une voix</option>
+                    <option value="">choisir le type de voix pour la lecture </option>
                 </select>
                 </article>
 
-                <article><button class="bouton" onclick="lireTexteAvecVoixNavigateur()">play</button></article>
+                <article><button class="bouton" onclick="lireTexteAvecVoixNavigateur()">Lecture</button></article>
                 <article><button class="bouton" onclick="reinitialiser()">Réinitialiser</button></article>
             </section>
         </article>
