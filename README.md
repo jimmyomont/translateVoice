@@ -1,6 +1,6 @@
-# TRANSLATE VOICE
+# VoiceTranslate Express
 
-[Lien vers l'app](https://translate-voice.vercel.app/)
+[Lien vers VoiceTranslate Express](https://voice-translate-express.vercel.app/)
 
  Une application interactive permettant de traduire le texte en différentes langues, avec la possibilité de lire le texte traduit à haute voix, le tout dans une interface agréablement stylisée. Responsive cette app met l'accent sur la facilité et la performance d'utilisation, quel que soit le dispositif utilisé.
 
