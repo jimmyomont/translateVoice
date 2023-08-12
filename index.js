@@ -4,7 +4,7 @@
 
 function traduire() {
     const texteFrancais = document.getElementById('texteFrancais').value;
-    const langueCible = document.getElementById('voiceSelect').value; // Obtenir la valeur de la langue cible
+    const langueCible = document.getElementById('voiceSelect').value; 
 
     if (langueCible === 'fr-FR') {
         document.getElementById('resultatTraduit').textContent = 'Veuillez choisir une langue de traduction.';
@@ -16,7 +16,6 @@ function traduire() {
         return;
     }
 
-    // Utiliser la valeur de la langue cible dans l'URL de la requête
     const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(texteFrancais)}&langpair=fr|${langueCible}`;
 
     fetch(url)
@@ -73,8 +72,6 @@ function lireTexteAvecVoixNavigateur() {
     }
     window.speechSynthesis.speak(speech);
 }
-
-
 
 //---------------------Horloge-------------------------------
 

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Orbitron:wght@700&display=swap"
         rel="stylesheet">
-    <title>Speech Converter</title>
+    <title>Translate Voice</title>
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="sytle.css">
 
@@ -28,7 +28,6 @@
         </article>
         <section class="form">
             <select id="voiceSelect"  onchange="traduire()">
-                <!-- Autres options existantes -->
                 <option value="fr-FR">Langue de traduction</option>
                 <option value="it-IT">Italien</option>
                 <option value="de-DE">Allemand</option>
@@ -40,10 +39,8 @@
                 <option value="zh-ZH">Chinois</option>
                 <option value="ja-JA">Japonais</option>
                 <option value="ko-KO">Coréen</option>
-                <!-- Ajoutez d'autres langues au besoin -->
             </select>
         </section>
-        <!-- <article class="traduire"><button class="bouton" onclick="traduire()">Traduire</button></article> -->
         <article class="box">
             <textarea id="resultatTraduit" placeholder="Texte traduit ici ..."></textarea>
         </article>
@@ -54,7 +51,6 @@
                     <option value="">Type de voix pour la lecture </option>
                 </select>
                 </article>
-
                 <article><button class="bouton" onclick="lireTexteAvecVoixNavigateur()">Lecture</button></article>
                 <article><button class="bouton" onclick="reinitialiser()">Réinitialiser</button></article>
             </section>

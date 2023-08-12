@@ -80,11 +80,11 @@ select {
   outline: 0;
   cursor: pointer;
 }
-.traduire{
+/* .traduire{
   width: 60%;
   margin: auto;
   margin-bottom: 0.5em;
-}
+} */
 /* ------------------------------Horloge----------------------------- */
 .time {
   text-align: center;
