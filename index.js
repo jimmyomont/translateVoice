@@ -70,9 +70,16 @@ voixNavigateur.addEventListener("change", () => {
 function lireTexteAvecVoixNavigateur() {
     // Récupère le texte à lire depuis le champ de résultat
     const texte = document.getElementById('resultatTraduit').value;
-    // Associe le texte à l'objet SpeechSynthesisUtterance
+        // Associe le texte à l'objet SpeechSynthesisUtterance
     speech.text = texte;
-    // Démarre la synthèse vocale
+
+    const lang = document.getElementById('voixNavigateur').value;
+
+    if (speech.voix) {
+        speech.lang = speech.voix.lang;
+    } else if (lang) {
+        speech.lang = lang;
+    }
     window.speechSynthesis.speak(speech);
 }
 
