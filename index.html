@@ -24,6 +24,12 @@
     <section class="content">
         <h1>Traducteur de texte</h1>
         <article class="box">
+            <h2>Par reconnaissance vocal :</h2>
+            <button class="bouton btnStart" onclick="startReconnaissance()">Démarrer la reconnaissance<div id="enregistrementIndicator" class="indicator"></div></button>
+            <button class="bouton btnStop" onclick="stopReconnaissance()">Arrêter</button>
+        </article>
+
+        <article class="box">
             <textarea id="texteFrancais" placeholder="Texte en Français à traduire ici ..."></textarea>
         </article>
         <section class="form">

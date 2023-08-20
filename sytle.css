@@ -80,6 +80,25 @@ select {
   outline: 0;
   cursor: pointer;
 }
+.indicator {
+  float: left;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  display: none; /* On cache l'indicateur par défaut */
+}
+.btnStart{
+  width: 60%;
+}
+.btnStop{
+  background-color: #6a24ba;
+  width: 60%;
+}
+.btnStop:hover{
+  background-color: #8b13db;
+}
 /* .traduire{
   width: 60%;
   margin: auto;

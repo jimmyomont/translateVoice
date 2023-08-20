@@ -10,10 +10,18 @@
 ### Traducteur de texte : 
 L'application permet de traduire un texte du français vers d'autres langues sélectionnables. Voici comment fonctionne cette partie :
 
-- L'utilisateur peut saisir le texte en français dans une zone de texte indiquée.
+- L'utilisateur peut saisir le texte en français dans une zone de texte indiquée ou par ``reconnaissance vocale*``.
 - Un menu déroulant permet à l'utilisateur de choisir la langue cible pour la traduction parmi plusieurs langues, telles que l'italien, l'allemand, l'anglais, l'espagnol, etc.
 - En cliquant sur le bouton de traduction, le texte saisi est envoyé à l'API "MyMemory Translated" pour être traduit dans la langue sélectionnée.
 - Le texte traduit est affiché dans une autre zone de texte réservée à cet effet.
+
+### * Reconnaissance Vocale : 
+
+- L'utilisateur peut activer la reconnaissance vocale pour dicter le texte qu'il souhaite traduire.
+- Via le bouton "Démarrer" qui active l'enregistrement audio.
+- Pendant l'enregistrement, une jauge visuelle indique la progression.
+- Un bouton "Arrêter" pour couper l'enregistrement. 
+- Une fois la reconnaissance vocale terminée, le texte est automatiquement affiché.
 
 ### Lecture du texte traduit : 
 L'application offre la possibilité de lire à voix haute le texte traduit à l'aide de la synthèse vocale du navigateur. 
