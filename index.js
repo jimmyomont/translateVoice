@@ -1,3 +1,5 @@
+
+
 // ----------------------------------------------Traducteur-----------------------------------------------
 
 function traduire() {
@@ -76,29 +78,55 @@ function lireTexteAvecVoixNavigateur() {
 
 //---------------------Horloge-------------------------------
 
-let heuresAfficher = document.querySelector('.heures');
-let date = document.querySelector('.date');
+// Sélectionne les éléments pour afficher l'heure et la date
+let heuresAfficher = document.querySelector('.heures')
+let date = document.querySelector('.date')
 
 // Fonction pour afficher l'heure et la date actuelles
 const affichageHeure = function () {
-    // ... (Code pour obtenir l'heure, la date, etc.)
+    let today, annee, listeMois, mois, listeJours, jourNumero, jourNom, heures, minutes, secondes, deuxChiffres;
+    today = new Date();
+    annee = today.getFullYear();
+
+    listeMois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+    mois = listeMois[today.getMonth()];
+
+    jourNumero = today.getDate();
+
+    listeJours = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+    jourNom = listeJours[today.getDay()]
+
+    deuxChiffres = function (element) {
+        if (element < 10) {
+            return element = "0" + element;
+        } else {
+            return element;
+        }
+    }
+
+    heures = deuxChiffres(today.getHours());
+
+    minutes = deuxChiffres(today.getMinutes())
+    secondes = deuxChiffres(today.getSeconds())
 
     // Met à jour l'affichage de l'heure et de la date
     heuresAfficher.textContent = heures + ":" + minutes + ":" + secondes;
     date.textContent = jourNom + "," + jourNumero + " " + mois + " " + annee;
 
     // Appelle récursivement la fonction après une seconde
-    setTimeout(affichageHeure, 1000);
+    setTimeout(affichageHeure, 1000)
 }
 
-// Appelle la fonction pour afficher l'heure au démarrage
 affichageHeure();
+
 
 //-----------------------------------reconnaissance vocale---------------------------- 
 
+// Déclare une variable pour la reconnaissance vocale
 let reconnaissanceVocale;
-
-const enregistrementIndicator = document.getElementById('enregistrementIndicator'); 
+// Sélectionne l'élément pour l'indicateur d'enregistrement
+const enregistrementIndicator = document.getElementById('enregistrementIndicator');
+// Sélectionne les boutons de démarrage et d'arrêt
 const boutonDemarrer = document.querySelector('button[onclick="startReconnaissance()"]');
 const boutonArreter = document.querySelector('button[onclick="stopReconnaissance()"]');
 
@@ -140,3 +168,5 @@ function stopReconnaissance() {
     reconnaissanceVocale.stop();
     enregistrementIndicator.style.display = 'none'; // Masque l'indicateur d'enregistrement
 }
+
+
